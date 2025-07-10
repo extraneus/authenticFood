@@ -1,0 +1,13 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  background: #faf6f1;
+  
+}
+.footerend{
+    justify-content: center;
+}
