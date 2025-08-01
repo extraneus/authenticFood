@@ -14,7 +14,7 @@ const AppBar: React.FC = () => {
       
       <nav className={styles.navLinks}>
         <Link to="/" className={styles.navLink}>Home</Link>
-        <Link to="/pizzas" className={styles.navLink}>Menu</Link>
+        <Link to="/menu" className={styles.navLink}>Menu</Link>
         <Link to="/about" className={styles.navLink}>About</Link>
         <Link to="/contact" className={styles.navLink}>Contact</Link>
       </nav>

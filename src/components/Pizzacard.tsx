@@ -27,7 +27,7 @@ function PizzaCard({ pizza }: { pizza: Pizza }) {
             {pizza.soldOut ? (
               <span className={styles.soldOutLabel}>SOLD OUT</span>
             ) : (
-              `$${pizza.price}`
+              `${pizza.price}tk`
             )}
           </span>
         </div>

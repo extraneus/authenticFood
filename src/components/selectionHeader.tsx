@@ -8,6 +8,10 @@ interface CuisineCategory {
   className: string;
 }
 
+interface HeaderSectionProps {
+  onCategorySelect: (category: string) => void;
+}
+
 const cuisines: CuisineCategory[] = [
   { title: "Italian", img: "/header/italy.jpg", className: "italian" },
   { title: "Japanese", img: "/header/japanese.jpg", className: "japanese" },
@@ -21,14 +25,23 @@ const cuisines: CuisineCategory[] = [
   },
 ];
 
-const HeaderSection: React.FC = () => {
+const HeaderSection: React.FC<HeaderSectionProps> = ({ onCategorySelect }) => {
   return (
     <div className={clsx(styles.headerContainer, "bg-white")}>
       <div className={styles.headerContent}>
         <div className={styles.scrollContainer}>
           <div className={styles.itemsContainer}>
             {cuisines.map((item, index) => (
-              <div key={index} className={styles.cuisineItem}>
+              <button
+                key={index}
+                className={clsx(styles.cuisineItem, "cursor-pointer")}
+                onClick={() => onCategorySelect(item.title)}
+                style={{
+                  border: "none",
+                  background: "transparent",
+                  textAlign: "center",
+                }}
+              >
                 <div className={styles.imageContainer}>
                   <img
                     src={item.img}
@@ -40,8 +53,13 @@ const HeaderSection: React.FC = () => {
                     }}
                   />
                 </div>
-                <p className={styles.cuisineTitle}>{item.title}</p>
-              </div>
+                <p
+                  className={styles.cuisineTitle}
+                  style={{ fontSize: "1.2rem", fontWeight: "600" }}
+                >
+                  {item.title}
+                </p>
+              </button>
             ))}
           </div>
         </div>

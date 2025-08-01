@@ -1,25 +1,30 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import AppBar from "./components/appBar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import PizzaCard from "./components/Pizzacard";
-import PizzaData from "../public/PizzaData";
 import HeaderSection from "./components/selectionHeader";
 import Footerall from "./components/footerall";
 import SignUp from "./components/signUp";
 import Login from "./components/logIn";
 import PizzaSection from "./components/PizzaSection";
+import ShawarmaSection from "./components/ShawarmaSection";
 import LandingPage from "./components/landingPage";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
-function HomePage() {
+function MenuPage() {
+  const [selectedCategory, setSelectedCategory] = useState<string | undefined>(undefined);
+
   return (
     <>
       <Header />
       <br />
-      <HeaderSection />
+      <HeaderSection onCategorySelect={setSelectedCategory} />
       <br />
-      <PizzaSection />
+      <PizzaSection filterCategory={selectedCategory} />
+      <ShawarmaSection />
       <div className="footerend">
         <Footer />
       </div>
@@ -32,23 +37,86 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Landing page with no AppBar */}
+        {/* Landing page without AppBar */}
         <Route path="/landing" element={<LandingPage />} />
-        
-        {/* All other pages with AppBar */}
-        <Route path="*" element={
-          <>
-            <AppBar />
-            <br></br>
-            <br></br>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/pizzas" element={<PizzaSection />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-          </>
-        } />
+
+        {/* Home page (can be just Landing or Welcome page) */}
+        <Route
+          path="/"
+          element={
+            <>
+              <AppBar />
+              <br />
+              <br />
+              <LandingPage />
+            </>
+          }
+        />
+
+        {/* Menu page with all HomePage sections */}
+        <Route
+          path="/menu"
+          element={
+            <>
+              <AppBar />
+              <br />
+              <br />
+              <MenuPage />
+            </>
+          }
+        />
+
+        {/* About page */}
+        <Route
+          path="/about"
+          element={
+            <>
+              <AppBar />
+              <br />
+              <br />
+              <About />
+            </>
+          }
+        />
+
+        {/* Contact page */}
+        <Route
+          path="/contact"
+          element={
+            <>
+              <AppBar />
+              <br />
+              <br />
+              <Contact />
+            </>
+          }
+        />
+
+        {/* Signup page */}
+        <Route
+          path="/signup"
+          element={
+            <>
+              <AppBar />
+              <br />
+              <br />
+              <SignUp />
+            </>
+          }
+        />
+
+        {/* Login page */}
+        <Route
+          path="/login"
+          element={
+            <>
+              <AppBar />
+              <br />
+              <br />
+              <Login />
+            </>
+          }
+        />
       </Routes>
     </Router>
   );
