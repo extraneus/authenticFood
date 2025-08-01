@@ -1,0 +1,73 @@
+.card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.25rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    align-items: flex-start;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .card:hover {
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  
+  /* Space between cards when hovering */
+  .card:hover + .card,
+  .card:hover {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .shawarmaImage {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover .shawarmaImage {
+    transform: scale(1.05);
+  }
+  
+  .textContent {
+    flex: 1;
+  }
+  
+  .nameLine {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.25rem;
+  }
+  
+  .shawarmaName {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .ingredients {
+    margin: 0;
+    font-style: italic;
+    color: #666;
+  }
+  
+  .price {
+    font-weight: bold;
+  }
+  
+  .soldOut {
+    opacity: 0.7;
+  }
+  
+  .soldOutLabel {
+    color: red;
+    font-weight: bold;
+  }
+  
