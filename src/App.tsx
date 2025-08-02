@@ -13,23 +13,26 @@ import ShawarmaSection from "./components/ShawarmaSection";
 import LandingPage from "./components/landingPage";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import JapaneseSection from "./components/JapaneseSection";
+
 
 function MenuPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>(undefined);
 
   return (
     <>
-      <Header />
-      <br />
-      <HeaderSection onCategorySelect={setSelectedCategory} />
-      <br />
-      <PizzaSection filterCategory={selectedCategory} />
-      <ShawarmaSection />
-      <div className="footerend">
-        <Footer />
-      </div>
-      <Footerall />
-    </>
+  <Header />
+  <br />
+  <HeaderSection onCategorySelect={setSelectedCategory} />
+  <br />
+  <PizzaSection filterCategory={selectedCategory} />
+  <ShawarmaSection />
+  <JapaneseSection filterCategory={selectedCategory} />
+  <div className="footerend">
+    <Footer />
+  </div>
+  <Footerall />
+</>
   );
 }
 
